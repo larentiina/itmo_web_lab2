@@ -1,13 +1,6 @@
 <%@ page import="models.PointsCollection" %>
-<%@ page import="models.PointData" %><%--
-  Created by IntelliJ IDEA.
-  User: Валерия
-  Date: 16.10.2023
-  Time: 15:26
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="models.PointData" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Result</title>
