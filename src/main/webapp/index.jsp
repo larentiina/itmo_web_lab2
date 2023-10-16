@@ -1,8 +1,8 @@
 <%@ page import="models.PointData" %>
 <%@ page import="models.PointsCollection" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,33 +75,34 @@
                     <th id="time">Текущее время</th>
                     <th id="scriptWork">Время работы скрипта</th>
                 </tr>
+                <% %>
                 <% if(collection != null) { %>
                 <% for(PointData point: collection.getCollection()){ %>
                     <tr>
-                        <td><%
-                           out.println(point.getCoordinates().getX());
+                        <td><%=
+                            point.getCoordinates().getX() %>
+                       </td>
+                        <td><%=
+                            point.getCoordinates().getY()%>
+                        </td>
+                        <td><%=
+                            point.getCoordinates().getR()
                         %></td>
-                        <td><%
-                            out.println(point.getCoordinates().getY());
+                        <td><%=
+                            point.getIsHit()
                         %></td>
-                        <td><%
-                            out.println(point.getCoordinates().getR());
+                        <td><%=
+                            point.getCurrentDate()
                         %></td>
-                        <td><%
-                            out.println(point.getIsHit());
-                        %></td>
-                        <td><%
-                            out.println(point.getCurrentDate());
-                        %></td>
-                        <td><%
-                            out.println(point.getScriptRunningTime());
+                        <td><%=
+                           point.getScriptRunningTime()
                         %></td>
                     </tr>
                 <% }
                 }%>
             </table>
         </td>
-        <td rowspan="3"id="right_border"></td>
+        <td rowspan="3" id="right_border"></td>
     </tr>
 
     <tr>
@@ -110,12 +111,12 @@
                 <fieldset>
                     <p><label>Изменение X:
                     <input type="text" placeholder="[-3;5]" id="X" required></label></p>
-                    <p><label >Изменение Y:</label>
+                    <p><label >Изменение Y:</label> </p>
                         <p>
                         <% for( int i=-5; i<=3; i++){ %>
                         <input class="Y" type="button" value="<%=i%>" onclick="chooseButton(this,'Y')">
                         <%}%>
-                    </p>
+
                     </p>
                     <p><label >Изменение R: </label>
                         <input class="R" type="button" value=1 onclick="chooseButton(this,'R')">

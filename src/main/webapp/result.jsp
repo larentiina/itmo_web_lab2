@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Result</title>
@@ -35,24 +35,24 @@
 <% PointsCollection collection = (PointsCollection) application.getAttribute("PointsCollection");%>
     <% PointData point = collection.getCollection().getLast();%>
         <tr>
-        <td><%
-            out.println(point.getCoordinates().getX());
-        %></td>
-        <td><%
-            out.println(point.getCoordinates().getY());
-        %></td>
-        <td><%
-            out.println(point.getCoordinates().getR());
-        %></td>
-        <td><%
-            out.println(point.getIsHit());
-        %></td>
-        <td><%
-            out.println(point.getCurrentDate());
-        %></td>
-        <td><%
-            out.println(point.getScriptRunningTime());
-        %></td>
+            <td><%=
+            point.getCoordinates().getX() %>
+            </td>
+            <td><%=
+            point.getCoordinates().getY()%>
+            </td>
+            <td><%=
+            point.getCoordinates().getR()
+            %></td>
+            <td><%=
+            point.getIsHit()
+            %></td>
+            <td><%=
+            point.getCurrentDate()
+            %></td>
+            <td><%=
+            point.getScriptRunningTime()
+            %></td>
     </tr>
 </table>
 <a href="http://localhost:8080/lab2web" id="return-link" class="button">Вернуться на главную страницу</a>
