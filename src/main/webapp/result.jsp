@@ -7,14 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/general_result_page.css">
-
 </head>
 <body>
 
 <header class="header">
-
     <span id="title">Кузенина Валерия Николаевна, группа: P3232, Вариант: 1121212</span>
-
 </header>
 <table id="result_table" >
     <tr>
@@ -28,20 +25,14 @@
 <% PointsCollection collection = (PointsCollection) application.getAttribute("PointsCollection");%>
     <% PointData point = collection.getCollection().getLast();%>
         <tr>
-            <td><%=
-            point.getCoordinates().getX() %>
+            <td><%=point.getCoordinates().getX() %>
             </td>
-            <td><%=
-            point.getCoordinates().getY()%>
+            <td><%=point.getCoordinates().getY()%>
             </td>
-            <td><%=
-            point.getCoordinates().getR()
+            <td><%=point.getCoordinates().getR()
             %></td>
-            <td><%=
-            point.getIsHit()
-            %></td>
-            <td><%=
-            point.getCurrentDate()
+            <td><%=point.getIsHit()%></td>
+            <td><%=point.getCurrentDate()
             %></td>
             <td><%=
             point.getScriptRunningTime()

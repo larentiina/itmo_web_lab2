@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,8 +23,8 @@ public class AreaCheckServlet extends HttpServlet {
             double x = Double.parseDouble(req.getParameter("x"));
             double y = Double.parseDouble(req.getParameter("y"));
             double r = Double.parseDouble(req.getParameter("r"));
-            PrintWriter out = resp.getWriter();
-            out.println(makeResponse(x,y,r,isHit(x,y,r),startTime));
+            if(!validateX(x) || !validateY(y) || !validateR(r)) resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid parameter");
+            resp.getWriter().println(makeResponse(x,y,r,isHit(x,y,r),startTime));
             resp.setStatus(HttpServletResponse.SC_OK);
         }catch (NumberFormatException e){
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid parameter");
@@ -52,6 +51,15 @@ public class AreaCheckServlet extends HttpServlet {
     private void addPointInContext(PointData point){
         PointsCollection collectIon = (PointsCollection) getServletContext().getAttribute("PointsCollection");
         collectIon.addElement(point);
+    }
+    private boolean validateX(double x){
+        return (x>=-3 && x<=5);
+    }
+    private boolean validateY(double y){
+        return (y>=-5 && y<=3);
+    }
+    private boolean validateR(double r){
+        return(r>=1 && r<=3);
     }
 
 }

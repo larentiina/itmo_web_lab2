@@ -1,8 +1,8 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>errorPage</title>
 </head>
 <body>
 <h1>Error 400</h1>

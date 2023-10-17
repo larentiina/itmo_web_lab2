@@ -26,6 +26,8 @@ public class ControllerServlet extends HttpServlet {
             getServletContext().setAttribute("PointsCollection",new PointsCollection());
         }else if (req.getParameter("x") !=null && req.getParameter("y") !=null && req.getParameter("r") !=null) {
             req.getRequestDispatcher("/check").forward(req, resp);
+        }else {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid parameter");
         }
     }
 }
